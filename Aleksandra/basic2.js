@@ -22,7 +22,20 @@ function nameColor(){
     }
 }
 
+function profColor() {
+    let profession1 = one.value;
+    let profession2 = two.value;
+    let selector = select.value;
 
+    if(selector == profession1){
+        document.getElementById("result").style.backgroundColor="blue";
+    } else {
+        document.getElementById("result").style.backgroundColor="pink";
+    }
+}
+
+
+document.getElementById("btn").addEventListener("click",profColor);
 document.getElementById("btn").addEventListener("click",nameColor);
 document.getElementById("btn").addEventListener("click",displayExercise);
 
