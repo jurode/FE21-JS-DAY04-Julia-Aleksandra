@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    #btn {
+        padding: 10em;
+        margin: 10em;
+    }
+</style>
+</head>
+<body>
+    
+    
+    <input type="submit" value="Click" id="btn">
+
+    <script>
+        let clickBtn = document.getElementById("btn");
+        let allchar="0123456789ABCDEF";
+
+        btn.addEventListener("click",myColor);
+
+
+        function myColor(){
+            let  randomColor= "";
+            for(let i=0; i<6; i++){
+            randomColor += allchar[Math.floor(Math.random()*16)];
+        }
+        document.body.style.backgroundColor= "#" +randomColor;
+        }
+        
+        /*
+        EXPLANATION : https://www.reddit.com/r/learnjavascript/comments/bold4g/beginner_questions_about_generating_random_color/
+        */
+    </script>
+</body>
+</html>
