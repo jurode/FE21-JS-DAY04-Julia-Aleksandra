@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate 1</title>
+
+    <style>
+        
+        main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            
+        }
+        img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Intermediate exercise 1</h1>
+    <!-- Create a Javascript program that will make the Santa Clauses disappear on a click from the following 3x3 matrix. Only the clicked Santa Claus should disappear. -->
+    <main>
+        <div class="box"><img src="intermediate1-box.webp" alt="box"></div>
+        <div class="santa"><img src="intermediate1-santa-claus.png" alt="santa"></div>
+        <div class="box"><img src="intermediate1-box.webp" alt="box"></div>
+        <div class="box"><img src="intermediate1-box.webp" alt="box"></div>
+        <div class="santa"><img src="intermediate1-santa-claus.png" alt="santa"></div>
+        <div class="box"><img src="intermediate1-box.webp" alt="box"></div>
+        <div class="santa"><img src="intermediate1-santa-claus.png" alt="santa"></div>
+        <div class="box"><img src="intermediate1-box.webp" alt="box"></div>
+        <div class="santa"><img src="intermediate1-santa-claus.png" alt="santa"></div>
+    </main>
+
+    <script>
+        document.getElementsByTagName("main").addEventListener("click", ()=>{
+            document.querySelectorAll(".santa").style.visibility = "hidden";
+        });
+
+    </script>
+    
+</body>
+</html>

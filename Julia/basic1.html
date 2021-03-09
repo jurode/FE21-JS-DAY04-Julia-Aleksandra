@@ -1,1 +1,57 @@
-!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic 1</title>
+</head>
+<body>
+
+    <h1>Basic Exercise 1</h1>
+    <!-- Create a form with input fields for your firstname, lastname and age.  Extract the values from each input field and display them all in a separate div.
+    If the length of your name is larger than 5 characters, change the text colour to green. Otherwise, change the text-colour to red.  
+    -->
+
+        <label for="">First Name: </label><input type="text" id="firstName"><br>
+        <label for="">Last Name: </label><input type="text" id="lastName"><br>
+        <label for="">Age: </label><input type="number" id="age"><br>
+        <button type="submit" id="submitBtn">Submit</button>
+
+    <div id="output"></div>
+
+
+    <script>
+
+        document.getElementById("submitBtn").addEventListener("click", function(){
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let age = document.getElementById("age").value;
+            
+            var myInput = `${firstName} ${lastName}, ${age} years old.`;
+            
+            document.getElementById("output").innerHTML = myInput;
+            
+            console.log(firstName);
+            console.log(myInput);
+
+            let nameLength = firstName.length + lastName.length;
+            console.log(nameLength);
+            
+            if (nameLength > 5) {
+                document.getElementById("output").style.color = "blue";
+            } else if (nameLength <= 5){
+                document.getElementById("output").style.color = "red";
+            }
+
+        });
+        
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
