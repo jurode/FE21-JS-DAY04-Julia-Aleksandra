@@ -14,10 +14,9 @@
         }
     </style>
 </head>
-<body class="container">
+<body class="container" onload="getPlayerNames()">
 
-    <!-- Many people love games of chance and especially the thrill of  "roll of the dice". For this exercise, create a page with a two-sided layout for two players based on the idea of "roll of the dice".
-    When the page loads, a prompt method should appear to receive a string (the name for each player), then display their names in the header of the page, for example, "Thomas vs. Martin".
+    <!-- 
     In each half of the layout, place a button that calls a function. This function should create one random number. Next, display the number separately and visually appealing in each player's half, so that the player can see what they "rolled". Once both players have rolled, announce the winner based on the highest score! Do your best to create a rich game-design using CSS or Bootstrap. 
     -->
 
@@ -35,7 +34,7 @@
 
         <div id="playerOne" class="border-end col-6 text-center">
             <h2>Player 1</h2>
-            <button>Roll the dice</button>
+            <button class="button">Roll the dice</button>
             <div class="points"></div>
             <div class="result"></div>
 
@@ -43,7 +42,7 @@
 
         <div id="playerTwo" class="col-6 text-center">
             <h2>Player 2</h2>
-            <button>Roll the dice</button>
+            <button class="button">Roll the dice</button>
             <div class="points"></div>
             <div class="result"></div>
 
@@ -51,8 +50,8 @@
     </main>
 
     <script>
-        // call your function
-        getPlayerNames();
+        // // call your function
+        // getPlayerNames();
 
         // get the player Names
         function getPlayerNames(){
@@ -64,16 +63,21 @@
             document.querySelector("#playerTwo h2").innerHTML = player2;
         }
 
-        // make function for rolling the dice
-        function rollTheDice(){
-            
-        }
         
         // put the two buttons in an Array
-        let rollBtn = document.querySelectorAll("button");
+        let rollBtn = document.getElementsByClassName("button");
+        // console.log(rollBtn);
 
         for (let i in rollBtn) {
-            
+            // for each index[i] of the two buttons rollBtn
+            // watch out if it is clicked
+
+            rollBtn[i].addEventListener("click", function(){
+                console.log("test" + [i]);
+                // function for rolling the dice
+                // let result = Math.Floor(Math.random()*7);
+                // document.getElementsByClassName("points")[i].innerHTML = result;
+            });
         }
 
 
