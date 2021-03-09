@@ -34,9 +34,17 @@
     </main>
 
     <script>
-        document.getElementsByTagName("main").addEventListener("click", ()=>{
-            document.querySelectorAll(".santa").style.visibility = "hidden";
-        });
+        let mySantas = document.getElementsByClassName("santa");
+        // console.log(mySantas);
+
+        for (let i in mySantas) {
+            // console.log(mySantas[i]);
+            mySantas[i].addEventListener("click", function(){
+                this.style.visibility = "hidden";
+                // console.log("test");
+            });
+
+        }
 
     </script>
     
