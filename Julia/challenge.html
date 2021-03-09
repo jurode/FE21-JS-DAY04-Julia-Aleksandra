@@ -15,71 +15,86 @@
     </style>
 </head>
 <body class="container" onload="getPlayerNames()">
-
     <!-- 
-    In each half of the layout, place a button that calls a function. This function should create one random number. Next, display the number separately and visually appealing in each player's half, so that the player can see what they "rolled". Once both players have rolled, announce the winner based on the highest score! Do your best to create a rich game-design using CSS or Bootstrap. 
+    Once both players have rolled, announce the winner based on the highest score! Do your best to create a rich game-design using CSS or Bootstrap. 
     -->
-
     <!-- Consider the following programming principles while solving the Challenge:
-        Use of best practices in semantic elements, code indentation and comments
         Give your page a responsive layout with at least two breakpoints
         Correct use of attributes with functions
         Declaring variables as global or local, when appropriate
-        Best practices in naming variables
         Manipulating the DOM with methods like .getElementById() and properties like .innerHTML 
     -->
 
     <main class="row">
-        <h1 class="text-uppercase text-center bg-light">Roll the dice</h1>
+        <h1 class="text-uppercase text-center bg-warning p-2 mb-5">Roll the dice</h1>
+        <div id="instruction" class="text-center fs-4 mb-4"></div>
 
         <div id="playerOne" class="border-end col-6 text-center">
-            <h2>Player 1</h2>
-            <button class="button">Roll the dice</button>
-            <div class="points"></div>
-            <div class="result"></div>
+            <h2 class="mb-4">Player 1</h2>
+            <button class="button btn btn-primary p-2">Roll the dice</button>
+            <div class="points  fs-4 mt-3 fw-bold"></div>
+            <div class="result mt-3"></div>
 
         </div>
 
         <div id="playerTwo" class="col-6 text-center">
-            <h2>Player 2</h2>
-            <button class="button">Roll the dice</button>
-            <div class="points"></div>
-            <div class="result"></div>
+            <h2 class="mb-4">Player 2</h2>
+            <button class="button btn btn-primary p-2">Roll the dice</button>
+            <div class="points fs-4 mt-3  fw-bold"></div>
+            <div class="result mt-3"></div>
 
         </div>
     </main>
 
     <script>
-        // // call your function
+        // call your function
         // getPlayerNames();
+
+        let player1;
+        let player2;
 
         // get the player Names
         function getPlayerNames(){
-            let player1 = prompt("Player 1 - please type in your name");
-            let player2 = prompt("Player 2 - please type in your name");
+            player1 = prompt("Player 1 - please type in your name");
+            player2 = prompt("Player 2 - please type in your name");
 
             // put player's name on each part of the desktop
             document.querySelector("#playerOne h2").innerHTML = player1;
             document.querySelector("#playerTwo h2").innerHTML = player2;
+
+            document.getElementById("instruction").innerHTML = player1 + ", please start with clicking the button!";
         }
+
+        let result1, result2;
+        result1 = Math.floor(Math.random() * 6 + 1);
+        result2 = Math.floor(Math.random() * 6 + 1);
+        
+        document.getElementsByClassName("button")[0].addEventListener("click", function(){
+            // function for rolling the dice
+            document.getElementsByClassName("points")[0].innerHTML = result1;
+            document.getElementById("instruction").innerHTML = player2 + ", it's your turn now!";
+        });
+
+        document.getElementsByClassName("button")[1].addEventListener("click", function(){
+            // function for rolling the dice
+            document.getElementsByClassName("points")[1].innerHTML = result1;
+            document.getElementById("instruction").innerHTML = "";
+
+            if (result1 > result2) {
+                document.getElementsByClassName("result")[0].innerHTML = "You win";
+                document.getElementsByClassName("result")[1].innerHTML = "You lose";
+            } else if (result1 > result2) {
+                document.getElementsByClassName("result")[1].innerHTML = "You win";
+                document.getElementsByClassName("result")[0].innerHTML = "You lose";
+            } else if (result1 = result2) {
+                document.getElementsByClassName("result")[0].innerHTML = "You are equal";
+                document.getElementsByClassName("result")[1].innerHTML = "You are equal";
+            }
+        });
+        
+
 
         
-        // put the two buttons in an Array
-        let rollBtn = document.getElementsByClassName("button");
-        // console.log(rollBtn);
-
-        for (let i in rollBtn) {
-            // for each index[i] of the two buttons rollBtn
-            // watch out if it is clicked
-
-            rollBtn[i].addEventListener("click", function(){
-                console.log("test" + [i]);
-                // function for rolling the dice
-                // let result = Math.Floor(Math.random()*7);
-                // document.getElementsByClassName("points")[i].innerHTML = result;
-            });
-        }
-
 
     </script>
 
