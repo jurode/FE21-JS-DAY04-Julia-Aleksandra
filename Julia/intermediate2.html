@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate 2</title>
+
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            margin: 0;
+            height: 100vh;
+            text-align: center;
+        }
+        main {
+            background-color: white;
+            padding: 2%;
+        }
+
+    </style>
+</head>
+<body id="body">
+    <!-- Create a JavaScript function to create random background colors each time we click a button that we had on the website.
+        Hint:
+        - Consider the RGB color code
+        - Consider the Global DOM built-in properties and methods -->
+
+    <main>
+        <h2>Intermediate exercise 2 | Dynamic Background</h2>
+        <button id="randomBgColor">Change Color</button>
+    </main>
+    
+
+    <script>
+
+        document.getElementById("randomBgColor").addEventListener("click", function(){
+            let bgColor = Math.floor(Math.random()*9999999).toString(16);
+            // EXPLANATION:
+            // Math.floor: takes the biggest number without decimals
+            // Math.random()*9999999: multiply with the biggest number you want to have - but sometimes it had only 5 digits, so I put one more 9 to the multiplication
+            // .toString(16): this includes some strings in the number (hexadecimal system)
+            // sometimes there are too few digits, but that's obviously not a problem
+
+            // inspiration for this solution: https://css-tricks.com/snippets/javascript/random-hex-color/
+            // toString: https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toString
+
+            document.getElementById("body").style.backgroundColor = "#" + bgColor;
+
+            console.log(bgColor);
+        });
+
+
+    </script>
+    
+</body>
+</html>
